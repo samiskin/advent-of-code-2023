@@ -29,7 +29,7 @@ const strNums = [
   "nine",
 ];
 
-const realInput = fs.readFileSync("inputs/d1p1.txt", "utf8");
+const realInput = fs.readFileSync("inputs/day-1.txt", "utf8");
 const lines = realInput.trim().split("\n");
 
 const p1Results = lines.map((line) => {

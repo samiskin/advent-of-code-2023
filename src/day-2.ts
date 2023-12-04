@@ -8,7 +8,7 @@ Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red
 Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green
 `;
 
-const input = fs.readFileSync("./inputs/d2p1.txt", "utf8");
+const input = fs.readFileSync("./inputs/day-2.txt", "utf8");
 
 const parsed = input
   .trim()

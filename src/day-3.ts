@@ -15,7 +15,7 @@ const testInput = `
 .664.598..
 `.trim();
 
-const input = fs.readFileSync("./inputs/d3p1.txt", "utf8").trim();
+const input = fs.readFileSync("./inputs/day-3.txt", "utf8").trim();
 
 const grid = input
   .trim()
