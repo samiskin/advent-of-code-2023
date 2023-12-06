@@ -610,6 +610,32 @@ export const intersperse = <T, V>(arr: Array<T>, separator: V) => {
   );
 };
 
+export const intervalOverlap = (
+  [a1, a2]: [number, number],
+  [b1, b2]: [number, number],
+): [number, number] | null => {
+  const [left, right] = [Math.max(a1, b1), Math.min(a2, b2)];
+  return left < right ? [left, right] : null;
+};
+
+export const intervalDifference = (
+  [a1, a2]: [number, number],
+  [b1, b2]: [number, number],
+): [number, number][] => {
+  const [left, right] = [Math.max(a1, b1), Math.min(a2, b2)];
+  if (left > right) {
+    return [[a1, a2]];
+  }
+  const result: [number, number][] = [];
+  if (a1 < left) {
+    result.push([a1, left]);
+  }
+  if (a2 > right) {
+    result.push([right, a2]);
+  }
+  return result;
+};
+
 // Given a sorted list of non-overlapping intervals, add the new interval to it and return the new list.
 export const addInterval = (
   intervals: Array<[number, number]>,
@@ -622,7 +648,7 @@ export const addInterval = (
   let new_intervals = [];
   let done = false;
   while (intervals.length > 0) {
-    let [il, ir] = intervals.shift();
+    let [il, ir] = intervals.shift()!;
     if (ir < left - 1) {
       new_intervals.push([il, ir]);
       continue;
